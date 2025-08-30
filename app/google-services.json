@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "959816301542",
+    "project_id": "mal-clone-184f0",
+    "storage_bucket": "mal-clone-184f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959816301542:android:c2829e3b4fca700f617427",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959816301542-hhf0o4hb8rmqfnt6ntue0uh4g19a392o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR_irAFyanMzb7jAXfKAPc1T80lP1gnVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959816301542-hhf0o4hb8rmqfnt6ntue0uh4g19a392o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ package com.example.myapplication.ui.theme.screens
 
 import android.R.attr.padding
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,17 +36,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import coil.compose.rememberAsyncImagePainter
+import coil3.compose.rememberAsyncImagePainter
 import com.example.myapplication.ui.theme.HomeViewModel
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    BasicScreen({ PageContent() },
+    BasicScreen(
+        { PageContent(onAnimeClick = {animeId ->
+            navController.navigate("animeDetail/$animeId")
+        }) },
         navController=navController)
 }
 
 @Composable
-private fun PageContent(homeViewModel: HomeViewModel=viewModel()) {
+private fun PageContent(homeViewModel: HomeViewModel=viewModel(),
+                        onAnimeClick:(Int)->Unit={}) {
     val recommendations by homeViewModel.recommendations.collectAsState()
     Column() {
         if (recommendations.isEmpty()) {
@@ -73,6 +78,7 @@ private fun PageContent(homeViewModel: HomeViewModel=viewModel()) {
                         Card(modifier=Modifier
                             .fillMaxWidth()
                             .aspectRatio(0.7f) // keeps consistent card shape
+                            .clickable(enabled = true,onClick={onAnimeClick(anime.malId)}) // navigate to anime detail screen
                             .clip(RoundedCornerShape(12.dp)),
                         elevation = CardDefaults.cardElevation(4.dp)
                         ) {

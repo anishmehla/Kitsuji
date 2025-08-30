@@ -4,12 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.model.AnimeEntry
 import com.example.myapplication.data.repository.AnimeRepository
-import com.example.myapplication.di.ServiceLocator
+import com.example.myapplication.di.NetworkModule.provideAnimeRepository
+import com.example.myapplication.di.NetworkModule.provideJikanApi
+import com.example.myapplication.di.NetworkModule.provideRetrofit
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel (
-    private val repository : AnimeRepository = ServiceLocator.animeRepository
+    private val repository : AnimeRepository = provideAnimeRepository(api=provideJikanApi(retrofit=provideRetrofit()))
 ) : ViewModel() {
 
     private val _recommendations = MutableStateFlow<List<AnimeEntry>>(emptyList())

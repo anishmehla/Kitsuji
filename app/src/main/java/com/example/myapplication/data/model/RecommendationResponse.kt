@@ -12,7 +12,7 @@ data class RecommendationGroup(
 )
 
 data class AnimeEntry(
-    val malId : Int,
+    @SerializedName("mal_id") val malId : Int,
     val title : String?,
     val url : String?,
     val images : Images?

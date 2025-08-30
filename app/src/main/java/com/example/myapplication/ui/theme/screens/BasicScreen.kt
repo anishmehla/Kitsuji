@@ -41,7 +41,7 @@ fun BasicScreen(
                 CenterAlignedTopAppBar(
                     title = {
                         Text(
-                            text = currentAppRoute?.name ?: "",
+                            text = currentAppRoute?.label ?: "",
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold
                         )
@@ -73,7 +73,7 @@ fun BasicScreen(
                                         contentDescription = navigation.label
                                     )
                                 },
-                                label = {Text(navigation.label)}
+                                label = {Text(navigation.name)}
                             )
 
 
